@@ -15,13 +15,13 @@ var fn = {
 		//alert("Nombre: "+nombreR+" Email: "+emailR+" Telefono: "+telefonoR+" Password: "+passwordR+" Foto: "+fotoR);
 		$.ajax({
 			method: "POST",
-			url: "http://www.colors.edu.mx/archivoTest.php",
+			url: "http://intranet.cae3076.com:50000/CursoAndroid/obtieneDatos.php",
 			data: { 
-				lectura: datosLeidos
+				datos: datosLeidos
 			}
 		}).done(function(mensaje){
 			//alert("Datos enviados");
-			alert("Datos guardados correctamente: "+mensaje);
+			alert(mensaje);
 		}).fail(function(error){
 			alert(error.status);
 			alert(error.message);
