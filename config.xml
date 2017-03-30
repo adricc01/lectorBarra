@@ -10,10 +10,10 @@
 
         <preference name="phonegap-version" value="cli-6.5.0" />
 
-        <name>HotelApp</name>
+        <name>LectorBarra</name>
 
         <description>
-            Aplicación de prueba para hoteles.
+            Aplicación de prueba para leer codigos de barras.
         </description>
 
         <author href="#" email="adominguez@cae3076.com">
