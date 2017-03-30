@@ -10,6 +10,24 @@ var fn = {
 		 */
 		$("#botonRegistrar1").tap(mc.abrirCamara);
 	},
+	enviarRegistro: function(datosLeidos){
+		//alert("Enviando datos");
+		//alert("Nombre: "+nombreR+" Email: "+emailR+" Telefono: "+telefonoR+" Password: "+passwordR+" Foto: "+fotoR);
+		$.ajax({
+			method: "POST",
+			url: "http://www.colors.edu.mx/archivoTest.php",
+			data: { 
+				lectura: datosLeidos
+			}
+		}).done(function(mensaje){
+			//alert("Datos enviados");
+			alert("Datos guardados correctamente: "+mensaje);
+		}).fail(function(error){
+			alert(error.status);
+			alert(error.message);
+			alert(error.responseText);
+		});
+	}
 	
 };
 /*
