@@ -23,6 +23,7 @@ var fn = {
 		}).done(function(mensaje){
 			//alert("Datos enviados");
 			alert(mensaje);
+			mc.abrirCamara();
 		}).fail(function(error){
 			alert(error.status);
 			alert(error.message);
