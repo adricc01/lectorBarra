@@ -8,8 +8,7 @@ var fn = {
 		 * En esta sección vamos a asociar
 		 * todos los eventos del "Click" al HTML
 		 */
-		$("#botonRegistrar1").tap(fn.abrirCamara);
-		$("#botonTomarFoto").tap(mc.abrirCamara);
+		$("#botonRegistrar1").tap(mc.abrirCamara);
 	},
 	
 };
