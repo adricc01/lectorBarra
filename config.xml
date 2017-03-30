@@ -26,7 +26,7 @@
         
         <gap:plugin name="org.apache.cordova.media-capture" source="npm"/>
         <gap:plugin name="org.apache.cordova.file-transfer" source="npm"/>
-        <gap:plugin name="org.apache.cordova.barcodeScanner" source="npm"/>
+        <gap:plugin name="com.phonegap.plugins.barcodescanner" source="npm"/>
 
         <access origin="*"/>
         <allow-intent href="*"/>
