@@ -20,7 +20,7 @@
             Adrián Domínguez
         </author>
 
-        <icon src="img/icono.jpg" />
+        <icon src="img/icono.png" />
         <splash src="img/splash.png" />
         <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
         
