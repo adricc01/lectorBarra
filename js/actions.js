@@ -9,7 +9,7 @@ var fn = {
 		 * todos los eventos del "Click" al HTML
 		 */
 		//mc.abrirCamara();
-		$("#botonRegistrar1").tap(mc.abrirCamara);
+		$("#botonEscanea").tap(mc.abrirCamara);
 	},
 	enviarRegistro: function(datosLeidos){
 		//alert("Enviando datos");
