@@ -6,7 +6,9 @@ var mc = {
 					  alert("Datos Obtenidos\n" +
 							"Result: " + result.text);
 					  fn.enviarRegistro(result.text);
-					  networkInfo.estaConectado();
+					  if(networkInfo.estaConectado() == false){
+						  alert("No existe conexion a internet");
+					  }
 				  }
 			  },
 			function (error) {
