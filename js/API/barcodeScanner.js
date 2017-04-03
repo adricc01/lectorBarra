@@ -6,7 +6,7 @@ var bcs = {
 					  alert("Datos Obtenidos\n" +
 							"Result: " + result.text);
 					  if(networkInfo.estaConectado() == false){
-						  alert("No existe conexion a internet, favor de revisarla e intente de nuevo");
+						  alert("No existe conexión a internet, revisela e intente de nuevo");
 					  }else{
 						  fn.enviarRegistro(result.text);
 					  }
