@@ -6,6 +6,7 @@ var mc = {
 					  alert("Datos Obtenidos\n" +
 							"Result: " + result.text);
 					  fn.enviarRegistro(result.text);
+					  networkInfo.estaConectado();
 				  }
 			  },
 			function (error) {
