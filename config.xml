@@ -32,9 +32,8 @@
 			<splash src="img/franco.png" density="port-mdpi"/>
 			<splash src="img/franco.png" density="port-xhdpi"/>
 		</platform>
+		<preference name="splashscreen" value="franco.png" />
 		<preference name="SplashScreenDelay" value="3000" />
-		<preference name="SplashMaintainAspectRatio" value="true|false" />
-		<preference name="SplashShowOnlyFirstTime" value="true|false" />
 		<icon src="img/icono2.png" />
        <!-- <splash src="img/franco.png"/>-->
         <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
