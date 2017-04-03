@@ -8,8 +8,8 @@ var fn = {
 		 * En esta sección vamos a asociar
 		 * todos los eventos del "Click" al HTML
 		 */
-		//mc.abrirCamara();
-		$("#botonEscanea").tap(mc.abrirCamara);
+		//bcs.abrirCamara();
+		$("#botonEscanea").tap(bcs.abrirCamara);
 	},
 	enviarRegistro: function(datosLeidos){
 		//alert("Enviando datos");
@@ -23,7 +23,7 @@ var fn = {
 		}).done(function(mensaje){
 			//alert("Datos enviados");
 			alert(mensaje);
-			mc.abrirCamara();
+			bcs.abrirCamara();
 		}).fail(function(error){
 			alert(error.status);
 			alert(error.message);

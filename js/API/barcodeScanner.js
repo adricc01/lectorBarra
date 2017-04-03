@@ -1,13 +1,13 @@
-var mc = {
+var bcs = {
 	abrirCamara: function(){
 		cordova.plugins.barcodeScanner.scan(
 			function (result) {
-				  if(result.text != ""){
+				if(result.text != ""){
 					  alert("Datos Obtenidos\n" +
 							"Result: " + result.text);
 					  if(networkInfo.estaConectado() == false){
-						  alert("No existe conexion a internet");
-						 }else{
+						  alert("No existe conexion a internet, favor de revisarla e intente de nuevo");
+					  }else{
 						  fn.enviarRegistro(result.text);
 					  }
 				  }
