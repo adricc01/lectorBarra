@@ -9,7 +9,13 @@ var fn = {
 		 * todos los eventos del "Click" al HTML
 		 */
 		//bcs.abrirCamara();
+		
+		
 		$("#botonEscanea").tap(bcs.abrirCamara);
+		navigator.splashscreen.show();
+		window.setTimeout(function() {
+			navigator.splashscreen.hide();
+		},2000);
 	},
 	enviarRegistro: function(datosLeidos){
 		//alert("Enviando datos");

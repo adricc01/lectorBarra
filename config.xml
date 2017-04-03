@@ -19,12 +19,16 @@
         <author href="#" email="adominguez@cae3076.com">
             Adrián Domínguez
         </author>
+        
+        <feature name="SplashScreen">
+			<param name="android-package" value="org.apache.cordova.SplashScreen" />
+			<param name="ios-package" value="CDVSplashScreen" />
+		</feature>
 
         <icon src="img/icono2.png" />
-        <gap:splash src="img/franco.png"/>
+        <splash src="img/franco.png"/>
         <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
         
-        <gap:plugin name="org.apache.cordova.media-capture" source="npm"/>
         <gap:plugin name="com.phonegap.plugins.barcodescanner" source="npm"/>
         <gap:plugin name="org.apache.cordova.network-information" source="npm"/>
 
