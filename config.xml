@@ -20,22 +20,10 @@
             Adrián Domínguez
         </author>
         
-        <platform name="android">
-			<!-- you can use any density that exists in the Android project -->
-			<splash src="img/franco.png" density="land-hdpi"/>
-			<splash src="img/franco.png" density="land-ldpi"/>
-			<splash src="img/franco.png" density="land-mdpi"/>
-			<splash src="img/franco.png" density="land-xhdpi"/>
-
-			<splash src="img/franco.png" density="port-hdpi"/>
-			<splash src="img/franco.png" density="port-ldpi"/>
-			<splash src="img/franco.png" density="port-mdpi"/>
-			<splash src="img/franco.png" density="port-xhdpi"/>
-		</platform>
-		<preference name="splashscreen" value="franco.png" />
+        <preference name="splashscreen" value="franco.png" />
 		<preference name="SplashScreenDelay" value="3000" />
 		<icon src="img/icono2.png" />
-       <!-- <splash src="img/franco.png"/>-->
+		<splash src="img/franco.png"/>
         <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
         
         <gap:plugin name="com.phonegap.plugins.barcodescanner" source="npm"/>
