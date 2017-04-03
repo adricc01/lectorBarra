@@ -21,7 +21,7 @@
         </author>
 
         <icon src="img/icono2.png" />
-        <splash src="img/franco.png" platform="android"/>
+        <gap:splash src="img/franco.png"/>
         <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
         
         <gap:plugin name="org.apache.cordova.media-capture" source="npm"/>
