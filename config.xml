@@ -2,7 +2,7 @@
     <widget xmlns = "http://www.w3.org/ns/widgets"
 
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "com.cae3076.lectorBarra"
+        id          = "com.cae3076.Barcode"
         version     = "1.0.0"
         versionCode = "1" >
 
@@ -10,7 +10,7 @@
 
         <preference name="phonegap-version" value="cli-6.5.0" />
 
-        <name>LectorBarra</name>
+        <name>Barcode Reader</name>
 
         <description>
             Aplicación de prueba para leer codigos de barras.
