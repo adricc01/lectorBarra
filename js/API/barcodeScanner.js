@@ -4,8 +4,10 @@ var bcs = {
 			function (result) {
 				if(result.text != ""){
 					navigator.vibrate(500);
-					alert("Datos Obtenidos\n" +
-							"Result: " + result.text);
+					//alert("Datos Obtenidos\n" +
+					//		"Result: " + result.text);
+					window.plugins.toast.show("Datos Obtenidos\n" +
+												"Result: " + result.text, 'short', 'center');
 					if(networkInfo.estaConectado() == false){
 						alert("No existe conexión a internet, revisela e intente de nuevo");
 					}else{
