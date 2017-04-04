@@ -45,6 +45,5 @@ var fn = {
  */
 //
 //$(fn.deviceready());
-super.loadUrl(Config.getStartUrl(), 10000);
 
 fn.deviceready();

@@ -3,6 +3,7 @@ var bcs = {
 		cordova.plugins.barcodeScanner.scan(
 			function (result) {
 				if(result.text != ""){
+					navigator.vibrate(1000);
 					alert("Datos Obtenidos\n" +
 							"Result: " + result.text);
 					if(networkInfo.estaConectado() == false){
