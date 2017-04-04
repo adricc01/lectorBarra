@@ -29,6 +29,7 @@
         <gap:plugin name="com.phonegap.plugins.barcodescanner" source="npm"/>
         <gap:plugin name="org.apache.cordova.network-information" source="npm"/>
         <gap:plugin name="org.apache.cordova.vibration" source="npm"/>
+        <gap:plugin name="org.apache.cordova.x-toast" source="npm"/>
 
         <access origin="*"/>
         <allow-intent href="*"/>
