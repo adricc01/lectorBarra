@@ -27,12 +27,21 @@ var fn = {
 			//alert("Datos enviados");
 			alert(mensaje);
 			//window.plugins.toast.show(mensaje, 'short', 'center');
+			fn.sleep(3000);
 			bcs.abrirCamara();
 		}).fail(function(error){
 			alert(error.status);
 			alert(error.message);
 			alert(error.responseText);
 		});
+	},
+	sleep: function(milisegundos){
+		var start = new Date().getTime();
+		for (var i = 0; i < 1e7; i++) {
+			if ((new Date().getTime() - start) > milisegundos){
+				break;
+			}
+		}
 	}
 	
 };
