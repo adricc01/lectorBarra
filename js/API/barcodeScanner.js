@@ -6,17 +6,19 @@ var bcs = {
 					navigator.vibrate(500);
 					//alert("Datos Obtenidos\n" +
 					//		"Result: " + result.text);
-					window.plugins.toast.show("Datos Obtenidos\n" +
-												"Result: " + result.text, 'short', 'center');
+					//window.plugins.toast.show("Datos Obtenidos\n" +
+					//							"Result: " + result.text, 'short', 'center');
 					if(networkInfo.estaConectado() == false){
-						alert("No existe conexión a internet, revisela e intente de nuevo");
+						window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
+						//alert("No existe conexión a internet, revisela e intente de nuevo");
 					}else{
 						fn.enviarRegistro(result.text);
 					}
 				  }
 			  },
 			function (error) {
-				alert("Scanning failed: " + error);
+				//alert("Scanning failed: " + error);
+				window.plugins.toast.show("Scanning failed: " + error, 'long', 'center');
 			},
 			{
 				"preferFrontCamera" : false, // iOS and Android 
