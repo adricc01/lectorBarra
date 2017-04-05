@@ -24,13 +24,22 @@ var fn = {
 			//alert("Datos enviados");
 			window.plugins.toast.show(mensaje, 'long', 'center');
 			//alert(mensaje);
-			//fn.sleep(3000);
-			bcs.abrirCamara().delay( 3000 );
+			fn.sleep(3000);
+			//bcs.abrirCamara().delay( 3000 );
 		}).fail(function(error){
 			alert(error.status);
 			alert(error.message);
 			alert(error.responseText);
 		});
+	},
+	sleep: function(milisegundos){
+		var start = new Date().getTime();
+		for (var i = 0; i < 1e7; i++) {
+			if ((new Date().getTime() - start) > milisegundos){
+				break;
+			}
+		}
+		bcs.abrirCamara();
 	}
 };
 /*
