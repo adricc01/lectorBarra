@@ -26,7 +26,7 @@ var fn = {
 			if(password == ""){
 				throw new Error("Especifique su contraseña");
 			}
-			
+			fn.enviarSesion(usuario, password);
 		}catch(error){
 			window.plugins.toast.show(error, 'short', 'center');
 		}
@@ -36,7 +36,7 @@ var fn = {
 			window.location.href="#inicio";
 		}
 	},
-	enviarSesion: function(datosLeidos){
+	enviarSesion: function(usuario, password){
 		//alert("Enviando datos");
 		//alert("Nombre: "+nombreR+" Email: "+emailR+" Telefono: "+telefonoR+" Password: "+passwordR+" Foto: "+fotoR);
 		$.ajax({
