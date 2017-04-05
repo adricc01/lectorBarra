@@ -24,7 +24,7 @@ var fn = {
 			//alert("Datos enviados");
 			window.plugins.toast.show(mensaje, 'long', 'center');
 			//alert(mensaje);
-			bcs.abrirCamara();
+			//bcs.abrirCamara();
 		}).fail(function(error){
 			alert(error.status);
 			alert(error.message);
