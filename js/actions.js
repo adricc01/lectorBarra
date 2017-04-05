@@ -26,6 +26,7 @@ var fn = {
 			if(password == ""){
 				throw new Error("Especifique su contraseña");
 			}
+			
 		}catch(error){
 			window.plugins.toast.show(error, 'short', 'center');
 		}
@@ -34,6 +35,30 @@ var fn = {
 		if(window.localStorage.getItem("nombreUsuario") != null){
 			window.location.href="#inicio";
 		}
+	},
+	enviarSesion: function(datosLeidos){
+		//alert("Enviando datos");
+		//alert("Nombre: "+nombreR+" Email: "+emailR+" Telefono: "+telefonoR+" Password: "+passwordR+" Foto: "+fotoR);
+		$.ajax({
+			method: "POST",
+			url: "http://intranet.cae3076.com:50000/CursoAndroid/compruebaSesion.php",
+			data: { 
+				usu: usuario,
+				pass: password
+			}
+		}).done(function(mensaje){
+			//alert("Datos enviados");
+			window.plugins.toast.show(mensaje, 'long', 'center');
+			window.localStorage.setItem("nombreUsuario", usuario);
+			window.location.href="#inicio";
+			//alert(mensaje);
+			//fn.sleep(3000);
+			//bcs.abrirCamara().delay( 3000 );
+		}).fail(function(error){
+			alert(error.status);
+			alert(error.message);
+			alert(error.responseText);
+		});
 	},
 	enviarRegistro: function(datosLeidos){
 		//alert("Enviando datos");
