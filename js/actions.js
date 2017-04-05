@@ -78,7 +78,8 @@ var fn = {
 			method: "POST",
 			url: "http://intranet.cae3076.com:50000/CursoAndroid/obtieneDatos.php",
 			data: { 
-				datos: datosLeidos
+				datos: datosLeidos,
+				usu: window.localStorage.getItem("nombreUsuario")
 			}
 		}).done(function(mensaje){
 			//alert("Datos enviados");
