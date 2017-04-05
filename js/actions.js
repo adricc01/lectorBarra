@@ -13,8 +13,6 @@ var fn = {
 		$("#botonEscanea").tap(bcs.abrirCamara);
 		$("#botonIniciarSesion").tap(fn.iniciarSesion);
 		//window.localStorage.setItem("nombreUsuario", "adominguez");
-		
-		
 	},
 	iniciarSesion: function(){
 		var usuario = $("#usuarioSesion").val();
@@ -48,9 +46,14 @@ var fn = {
 			}
 		}).done(function(mensaje){
 			//alert("Datos enviados");
-			window.plugins.toast.show(mensaje, 'long', 'center');
-			window.localStorage.setItem("nombreUsuario", usuario);
-			window.location.href="#inicio";
+			if(mensaje == "1"){
+				window.localStorage.setItem("nombreUsuario", usuario);
+				window.location.href="#inicio";
+			}else{
+				window.plugins.toast.show("Usuario/Contraseña invalido(s)", 'long', 'center');
+			}
+			
+			
 			//alert(mensaje);
 			//fn.sleep(3000);
 			//bcs.abrirCamara().delay( 3000 );
