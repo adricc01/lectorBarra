@@ -9,10 +9,7 @@ var fn = {
 		 * todos los eventos del "Click" al HTML
 		 */
 		//bcs.abrirCamara();
-		
-		
 		$("#botonEscanea").tap(bcs.abrirCamara);
-		
 	},
 	enviarRegistro: function(datosLeidos){
 		//alert("Enviando datos");
@@ -25,8 +22,6 @@ var fn = {
 			}
 		}).done(function(mensaje){
 			//alert("Datos enviados");
-			
-			fn.sleep(3000);
 			window.plugins.toast.show(mensaje, 'short', 'center');
 			//alert(mensaje);
 			bcs.abrirCamara();
@@ -35,16 +30,7 @@ var fn = {
 			alert(error.message);
 			alert(error.responseText);
 		});
-	},
-	sleep: function(milisegundos){
-		var start = new Date().getTime();
-		for (var i = 0; i < 1e7; i++) {
-			if ((new Date().getTime() - start) > milisegundos){
-				break;
-			}
-		}
 	}
-	
 };
 /*
  *Llamar al metodo Init en el navegador
