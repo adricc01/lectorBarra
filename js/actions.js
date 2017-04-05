@@ -9,7 +9,31 @@ var fn = {
 		 * todos los eventos del "Click" al HTML
 		 */
 		//bcs.abrirCamara();
+		fn.compruebaSesion();
 		$("#botonEscanea").tap(bcs.abrirCamara);
+		$("#botonIniciarSesion").tap(bcs.abrirCamara);
+		//window.localStorage.setItem("nombreUsuario", "adominguez");
+		
+		
+	},
+	iniciarSesion: function(){
+		var usuario = $("#usuarioSesion").val();
+		var password = $("#passwordSesion").val();
+		try{
+			if(usuario == ""){
+				throw new Error("Especifique su usuario");
+			}
+			if(password == ""){
+				throw new Error("Especifique su contraseña");
+			}
+		}catch(error){
+			window.plugins.toast.show(error, 'short', 'center');
+		}
+	},
+	compruebaSesion: function(){
+		if(window.localStorage.getItem("nombreUsuario") != null){
+			window.location.href="#inicio";
+		}
 	},
 	enviarRegistro: function(datosLeidos){
 		//alert("Enviando datos");
@@ -51,6 +75,4 @@ var fn = {
  *Llamar deviceready para compilar
  */
 //
-//$(fn.deviceready());
-
 fn.deviceready();

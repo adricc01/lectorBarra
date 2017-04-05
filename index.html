@@ -9,7 +9,39 @@
 		<link rel="stylesheet" type="text/css" href="css/estilos.css">
 	</head>
 	<body>
-	<div id="registro" data-role="page">
+	<div id="inicioSesion" data-role="page">
+		<div data-role="header">
+			<h1>Iniciar Sesión</h1>
+		</div>
+		<div class="ui-content">
+			<ul data-role="listview">
+				<li data-role="list-divider">
+					Usuario
+				</li>
+				<li>
+					<input type="text" id="usuarioSesion" placeholder="Email">
+				</li>
+				<li data-role="list-divider">
+					Contraseña
+				</li>
+				<li>
+					<input type="password" id="passwordSesion" placeholder="Contraseña">
+				</li>
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li>
+						<a id="botonIniciarSesion" href="#" class="ui-btn-active">
+							Iniciar Sesión
+						</a>
+					</li>
+				</ul>
+			</div>		
+		</div>
+	</div>
+	<div id="inicio" data-role="page">
 		<div data-role="header">
 			<h1>Modulación</h1>
 		</div>
