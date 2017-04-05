@@ -10,7 +10,7 @@
 
         <preference name="phonegap-version" value="cli-6.5.0" />
 
-        <name>Barcode Reader</name>
+        <name>Modulación</name>
 
         <description>
             Aplicación de prueba para leer códigos de barra.
