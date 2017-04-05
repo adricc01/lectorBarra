@@ -31,6 +31,7 @@ var fn = {
 	},
 	compruebaSesion: function(){
 		if(window.localStorage.getItem("nombreUsuario") != null){
+			$("#usuario").html(window.localStorage.getItem("nombreUsuario"));
 			window.location.href="#inicio";
 		}
 	},
@@ -48,6 +49,7 @@ var fn = {
 			//alert("Datos enviados");
 			if(mensaje == "1"){
 				window.localStorage.setItem("nombreUsuario", usuario);
+				$("#usuario").html(usuario);
 				window.location.href="#inicio";
 			}else{
 				window.plugins.toast.show("Usuario/Contraseña invalido(s)", 'long', 'center');
