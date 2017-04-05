@@ -12,7 +12,13 @@ var fn = {
 		fn.compruebaSesion();
 		$("#botonEscanea").tap(bcs.abrirCamara);
 		$("#botonIniciarSesion").tap(fn.iniciarSesion);
+		$("#botonCerrarSesion").tap(fn.cerrarSesion);
+		
 		//window.localStorage.setItem("nombreUsuario", "adominguez");
+	},
+	cerrarSesion: function(){
+		window.localStorage.removeItem("nombreUsuario");
+		window.location.href = "#inicioSesion";
 	},
 	iniciarSesion: function(){
 		var usuario = $("#usuarioSesion").val();
