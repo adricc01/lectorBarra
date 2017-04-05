@@ -11,7 +11,7 @@ var fn = {
 		//bcs.abrirCamara();
 		fn.compruebaSesion();
 		$("#botonEscanea").tap(bcs.abrirCamara);
-		$("#botonIniciarSesion").tap(bcs.abrirCamara);
+		$("#botonIniciarSesion").tap(fn.iniciarSesion);
 		//window.localStorage.setItem("nombreUsuario", "adominguez");
 		
 		
