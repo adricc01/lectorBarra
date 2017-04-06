@@ -18,6 +18,8 @@ var fn = {
 	},
 	cerrarSesion: function(){
 		window.localStorage.removeItem("nombreUsuario");
+		$("#usuarioSesion").val("");
+		$("#passwordSesion").val(""); 
 		window.location.href = "#inicioSesion";
 	},
 	iniciarSesion: function(){
@@ -53,7 +55,7 @@ var fn = {
 			}
 		}).done(function(mensaje){
 			//alert("Datos enviados");
-			if(mensaje == "1"){
+			if(mensaje != "0"){
 				window.localStorage.setItem("nombreUsuario", usuario);
 				$("#usuario").html(usuario);
 				window.location.href="#inicio";
@@ -106,10 +108,10 @@ var fn = {
 /*
  *Llamar al metodo Init en el navegador
  */
-//fn.init();
+fn.init();
 
 /*
  *Llamar deviceready para compilar
  */
 //
-fn.deviceready();
+//fn.deviceready();

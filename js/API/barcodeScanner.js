@@ -4,6 +4,8 @@ var bcs = {
 			function (result) {
 				if(result.text != ""){
 					navigator.vibrate(500);
+					$("#botonEscanea").removeClass( "ui-btn-active" );
+					
 					//alert("Datos Obtenidos\n" +
 					//		"Result: " + result.text);
 					//window.plugins.toast.show("Datos Obtenidos\n" +
