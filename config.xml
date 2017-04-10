@@ -5,31 +5,26 @@
         id          = "com.cae3076.Barcode"
         version     = "1.0.1"
         versionCode = "1" >
-
-        <!-- versionCode is optional and Android only -->
-
-        <preference name="phonegap-version" value="cli-6.5.0" />
-
+		<!-- versionCode is optional and Android only -->
+		<preference name="phonegap-version" value="cli-6.5.0" />
         <name>Modulación</name>
-
-        <description>
+		<description>
             Aplicación de para leer código de barras de pedimento.
         </description>
-
-        <author href="#" email="adominguez@cae3076.com">
+		<author href="#" email="adominguez@cae3076.com">
             Adrián Domínguez
         </author>
         
-        <preference name="splashscreen" value="franco.png" />
 		<preference name="SplashScreenDelay" value="3000" />
 		<icon src="img/icono2.png" />
-		<splash src="img/franco.png"/>
+		<splash src="img/splash_.png"/>
         <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
         
         <gap:plugin name="com.phonegap.plugins.barcodescanner" source="npm"/>
         <gap:plugin name="org.apache.cordova.network-information" source="npm"/>
         <gap:plugin name="org.apache.cordova.vibration" source="npm"/>
         <gap:plugin name="cordova-plugin-x-toast" source="npm" />
+        <gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
 
         <access origin="*"/>
         <allow-intent href="*"/>
