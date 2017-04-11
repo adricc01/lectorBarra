@@ -18,7 +18,7 @@ var fn = {
 	},
 	onBackKeyDown: function(){
 		// Handle the back button
-		alert();
+		
 		navigator.app.exitApp();
 		return false;
 	},
@@ -52,32 +52,38 @@ var fn = {
 	enviarSesion: function(usuario, password){
 		//alert("Enviando datos");
 		//alert("Nombre: "+nombreR+" Email: "+emailR+" Telefono: "+telefonoR+" Password: "+passwordR+" Foto: "+fotoR);
-		$.ajax({
-			method: "POST",
-			url: "http://intranet.cae3076.com:50000/CursoAndroid/compruebaSesion.php",
-			data: { 
-				usu: usuario,
-				pass: password
-			}
-		}).done(function(mensaje){
-			//alert("Datos enviados");
-			if(mensaje != "0"){
-				window.localStorage.setItem("nombreUsuario", usuario);
-				$("#usuario").html(usuario);
-				window.location.href="#inicio";
-			}else{
-				window.plugins.toast.show("Usuario/Contraseña invalido(s)", 'long', 'center');
-			}
-			
-			
-			//alert(mensaje);
-			//fn.sleep(3000);
-			//bcs.abrirCamara().delay( 3000 );
-		}).fail(function(error){
-			alert(error.status);
-			alert(error.message);
-			alert(error.responseText);
-		});
+		if(networkInfo.estaConectado() == false){
+			window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
+			//alert("No existe conexión a internet, revisela e intente de nuevo");
+		}else{
+			$.ajax({
+				method: "POST",
+				url: "http://intranet.cae3076.com:50000/CursoAndroid/compruebaSesion.php",
+				data: { 
+					usu: usuario,
+					pass: password
+				}
+			}).done(function(mensaje){
+				//alert("Datos enviados");
+				if(mensaje != "0"){
+					window.localStorage.setItem("nombreUsuario", usuario);
+					$("#usuario").html(usuario);
+					window.location.href="#inicio";
+				}else{
+					window.plugins.toast.show("Usuario/Contraseña invalido(s)", 'long', 'center');
+				}
+
+
+				//alert(mensaje);
+				//fn.sleep(3000);
+				//bcs.abrirCamara().delay( 3000 );
+			}).fail(function(error){
+				alert(error.status);
+				alert(error.message);
+				alert(error.responseText);
+			});
+		}
+		
 	},
 	enviarRegistro: function(datosLeidos){
 		//alert("Enviando datos");
