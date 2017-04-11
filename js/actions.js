@@ -18,7 +18,9 @@ var fn = {
 	},
 	onBackKeyDown: function(){
 		// Handle the back button
-		alert();return false;
+		alert();
+		navigator.app.exitApp();
+		return false;
 	},
 	cerrarSesion: function(){
 		window.localStorage.removeItem("nombreUsuario");
