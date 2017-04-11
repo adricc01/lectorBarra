@@ -13,8 +13,12 @@ var fn = {
 		$("#botonEscanea").tap(bcs.abrirCamara);
 		$("#botonIniciarSesion").tap(fn.iniciarSesion);
 		$("#botonCerrarSesion").tap(fn.cerrarSesion);
-		
+		document.addEventListener("backbutton", onBackKeyDown, false);
 		//window.localStorage.setItem("nombreUsuario", "adominguez");
+	},
+	onBackKeyDown: function(){
+		// Handle the back button
+		alert();return false;
 	},
 	cerrarSesion: function(){
 		window.localStorage.removeItem("nombreUsuario");
@@ -108,10 +112,10 @@ var fn = {
 /*
  *Llamar al metodo Init en el navegador
  */
-fn.init();
+//fn.init();
 
 /*
  *Llamar deviceready para compilar
  */
 //
-//fn.deviceready();
+fn.deviceready();
