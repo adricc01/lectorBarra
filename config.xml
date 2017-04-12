@@ -31,7 +31,4 @@
         <access origin="*"/>
         <allow-intent href="*"/>
         <allow-navigation href="*"/>
-        <gap:config-file platform="android" parent="/manifest" mode="add">
-		  <application android:debuggable="false"/>
-		</gap:config-file> 
     </widget>
