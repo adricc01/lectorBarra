@@ -8,6 +8,9 @@
 		<!-- versionCode is optional and Android only -->
 		<preference name="phonegap-version" value="cli-6.5.0" />
         <preference name="SplashScreenDelay" value="5000" />
+        <gap:config-file platform="android" parent="/manifest">
+		  <application android:debuggable="false"/>
+		</gap:config-file>
         <name>Modulación</name>
 		<description>
             Aplicación de para leer código de barras de pedimento.
