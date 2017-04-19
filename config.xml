@@ -6,6 +6,8 @@
         versionCode = "1" >
 		<!-- versionCode is optional and Android only -->
 		<preference name="phonegap-version" value="cli-6.5.0" />
+       	<preference name="show-splash-screen-spinner" value="true" /> 
+		<preference name="auto-hide-splash-screen" value="false" /> 
         <preference name="SplashScreenDelay" value="5000" />
        
         <name>Modulación</name>
