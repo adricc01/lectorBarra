@@ -5,7 +5,7 @@
         version     = "1.0.1"
         versionCode = "1" >
 		<!-- versionCode is optional and Android only -->
-		<preference name="phonegap-version" value="3.0" />
+		<preference name="phonegap-version" value="cli-6.5.0" />
         <preference name="SplashScreenDelay" value="5000" />
 
         <name>Modulación</name>
@@ -22,19 +22,20 @@
         <icon src="img/icon/ios/icon-57-2x.png"         gap:platform="ios"        width="114" height="114" />
         <icon src="img/icon/ios/icon-72-2x.png"         gap:platform="ios"        width="144" height="144" />
 
-        <splash src="img/cae-loe-splash.png" gap:platform="android"/>
+        <splash src="img/cae-loe-splash.png" />
         <splash src="img/splash/ios/screen-iphone-portrait.png" platform="ios" width="320" height="480" />
-        <gap:splash src="img/splash/ios/screen-iphone-portrait.png" gap:platform="ios" width="320" height="480"/>
-        <gap:splash src="img/splash/ios/screen-iphone-portrait-2x.png" gap:platform="ios" width="640" height="960"/>
-        <gap:splash src="img/splash/ios/screen-iphone-portrait-568h-2x.png" gap:platform="ios" width="640" height="1136"/>
-        <gap:splash src="img/splash/ios/screen-ipad-portrait.png" gap:platform="ios" width="768" height="1024"/>
-        <gap:splash src="img/splash/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="768"/>
+        <splash src="img/splash/ios/screen-iphone-portrait.png" platform="ios" width="320" height="480"/>
+        <splash src="img/splash/ios/screen-iphone-portrait-2x.png" platform="ios" width="640" height="960"/>
+        <splash src="img/splash/ios/screen-iphone-portrait-568h-2x.png" platform="ios" width="640" height="1136"/>
+        <splash src="img/splash/ios/screen-ipad-portrait.png" platform="ios" width="768" height="1024"/>
+        <splash src="img/splash/ios/screen-ipad-landscape.png" platform="ios" width="1024" height="768"/>
 
         <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
         <gap:plugin name="com.phonegap.plugins.barcodescanner" source="npm"/>
         <gap:plugin name="org.apache.cordova.network-information" source="npm"/>
         <gap:plugin name="org.apache.cordova.vibration" source="npm"/>
         <gap:plugin name="cordova-plugin-x-toast" source="npm" />
+        <gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
 
         <access origin="*"/>
         <allow-intent href="*"/>
