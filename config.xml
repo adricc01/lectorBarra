@@ -35,7 +35,6 @@
         <gap:plugin name="org.apache.cordova.network-information" source="npm"/>
         <gap:plugin name="org.apache.cordova.vibration" source="npm"/>
         <gap:plugin name="cordova-plugin-x-toast" source="npm" />
-        <gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
 
         <access origin="*"/>
         <allow-intent href="*"/>
