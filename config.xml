@@ -23,7 +23,7 @@
         <icon src="img/icon/ios/icon-72-2x.png"         gap:platform="ios"        width="144" height="144" />
 		<splash src="./img/cae-loe-splash.png" platform="android"/>
         <splash src="splash.png" platform="ios"/>
-        <splash src="./img/splash/ios/screen-iphone-portrait.png" platform="ios" width="320" height="480" />
+        <splash src="splash.png" platform="ios" width="640" height="1136"/>
         <splash src="./img/splash/ios/screen-iphone-portrait.png" platform="ios" width="320" height="480"/>
         <splash src="./img/splash/ios/screen-iphone-portrait-2x.png" platform="ios" width="640" height="960"/>
         <splash src="./img/splash/ios/screen-iphone-portrait-568h-2x.png" platform="ios" width="640" height="1136"/>
