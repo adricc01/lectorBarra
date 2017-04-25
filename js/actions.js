@@ -126,5 +126,4 @@ var fn = {
  *Llamar deviceready para compilar
  */
 //
-navigator.splashscreen.show();
 fn.deviceready();
