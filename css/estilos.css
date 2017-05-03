@@ -24,6 +24,6 @@
 	text-align: center;
 	border-collapse: collapse;
 }
-.informacion th{
+.informacion th, .informacion td{
 	width: 24%;
 }
