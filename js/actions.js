@@ -13,6 +13,7 @@ var fn = {
 		$("#botonEscanea").tap(bcs.abrirCamara);
 		$("#botonIniciarSesion").tap(fn.iniciarSesion);
 		$("#botonCerrarSesion").tap(fn.cerrarSesion);
+		$("#botonPendientes").tap(almacena.cargarDatosPendientes);
 		document.addEventListener("backbutton", fn.onBackKeyDown, false);
 		//window.localStorage.setItem("nombreUsuario", "adominguez");
 	},

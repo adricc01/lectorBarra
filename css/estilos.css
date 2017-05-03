@@ -4,3 +4,26 @@
 #contenido, #contenido2{
 	margin-top: 25%;
 }
+.datosFooter{
+	display: inline-block;
+	width: 32%;
+}
+.datosFooter:nth-child(1), .datosFooter:nth-child(2){
+	text-align: center;
+}
+.datosFooter:nth-child(3){
+	text-align: right;
+}
+.informacion, 
+.informacion th,
+.informacion td,
+.informacion tr{
+	font-size: 14px;
+	border: 1px solid black;
+	padding: 2px 3px;
+	text-align: center;
+	border-collapse: collapse;
+}
+.informacion th{
+	width: 24%;
+}
