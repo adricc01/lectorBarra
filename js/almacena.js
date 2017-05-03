@@ -57,7 +57,9 @@ var almacena = {
 				resultado += '<tr><td>'+usu+'</td><td>'+usu+'</td><td>'+inf+'</td><td>'+est+'</td></tr>';
 			}
 		}
-
+		$("#informacion").removeClass("ui-table");
+		$("#informacion").removeClass("ui-table-reflow");
 		$("#listaPendientes").html(resultado);
+		
 	}
 }; 
