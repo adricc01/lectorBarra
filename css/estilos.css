@@ -14,9 +14,6 @@
 .datosFooter:nth-child(3){
 	text-align: right;
 }
-.ui-content{
-	width: 100%;
-}
 .informacion, 
 .informacion th,
 .informacion td,
