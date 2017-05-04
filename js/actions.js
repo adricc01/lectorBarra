@@ -97,7 +97,7 @@ var fn = {
 				usu: window.localStorage.getItem("nombreUsuario")
 			}
 		}).done(function(mensaje){
-			//alert("Datos enviados");
+			//alert( "Datos enviados");
 			window.plugins.toast.show(mensaje, 'long', 'center');
 			//alert(mensaje);
 			fn.sleep(3000);
