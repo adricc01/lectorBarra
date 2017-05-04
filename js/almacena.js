@@ -39,7 +39,7 @@ var almacena = {
 		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
 
 		// LEER DEL HISTORIAL
-		tx.executeSql('SELECT * FROM Pendientes WHERE usuario="'+window.localStorage.getItem("nombreUsuario")+'"', [], almacena.mostrarResultadosPendientes, null);
+		tx.executeSql('SELECT * FROM Pendientes ', [], almacena.mostrarResultadosPendientes, null);
 	},
 
 	mostrarResultadosPendientes: function(tx, res){
