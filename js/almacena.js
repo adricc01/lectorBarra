@@ -54,7 +54,7 @@ var almacena = {
 				var usu = res.rows.item(i).usuario;
 				var inf = res.rows.item(i).informacion;
 				var est = res.rows.item(i).estado;
-				resultado += '<div class="ui-grid-b bordes"><div class="ui-block-a"><span>'+usu+'</span></div><div class="ui-block-b"><span>'+inf+'</span></div><div class="ui-block-c"><span>'+est+'</span></div>';
+				resultado += '<div class="ui-block-a"><span>'+usu+'</span></div><div class="ui-block-b"><span>'+inf+'</span></div><div class="ui-block-c"><span>'+est+'</span></div>';
 			}
 		}
 		//$("#informacion").removeClass("ui-table");
