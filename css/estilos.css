@@ -33,9 +33,12 @@
 	padding: 2px 3px;
 	text-align: center;
 	border-collapse: collapse;
+	height: 100%;
 }
 .encabezado{
 	font-weight: bold;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 .informacion th, .informacion td{
 	width: 24%;
