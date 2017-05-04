@@ -48,13 +48,13 @@ var almacena = {
 
 		if(cantidad > 0){
 			// SI HAY RESERVAS EN EL HISTORIAL
-			var resultado = '';
+			resultado = '';
 
 			for( var i = 0; i < cantidad; i++){
 				var usu = res.rows.item(i).usuario;
 				var inf = res.rows.item(i).informacion;
 				var est = res.rows.item(i).estado;
-				resultado += '<tr><td>'+usu+'</td><td>'+usu+'</td><td>'+inf+'</td><td>'+est+'</td></tr>';
+				resultado += '<div class="ui-grid-b bordes"><div class="ui-block-a"><span>'+usu+'</span></div><div class="ui-block-b"><span>'+inf+'</span></div><div class="ui-block-c"><span>'+est+'</span></div>';
 			}
 		}
 		//$("#informacion").removeClass("ui-table");

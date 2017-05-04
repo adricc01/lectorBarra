@@ -25,7 +25,17 @@
 	border: 1px solid black;
 	padding: 2px 3px;
 	text-align: center;
+	border-collapse:inherit;
+}
+.bordes div{
+	font-size: 14px;
+	border: 1px solid black;
+	padding: 2px 3px;
+	text-align: center;
 	border-collapse: collapse;
+}
+.encabezado{
+	font-weight: bold;
 }
 .informacion th, .informacion td{
 	width: 24%;
