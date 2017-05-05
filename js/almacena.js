@@ -78,6 +78,74 @@ var almacena = {
 		//$("#informacion").removeClass("ui-table");
 		//$("#informacion").removeClass("ui-table-reflow");
 		$("#listaPendientes").html(resultado);
+	},
+	
+	consultaDatosPendientes: function(){
+		almacena.db = almacena.conectarDB();
+		almacena.db.transaction(almacena.seleccionarPendientes, almacena.error);
+	},
+
+	seleccionarPendientes: function(tx){
+		// CREAR TABLA DE HISTORIAL SI NO EXISTE
+		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
+
+		// LEER DEL HISTORIAL
+		tx.executeSql('SELECT * FROM Pendientes WHERE usuario="'+window.localStorage.getItem("nombreUsuario")+'"', [], almacena.enviarPendientes, null);
+	},
+
+	enviarPendientes: function(tx, res){
+		var cantidad = res.rows.length;
+		var resultado = '<tr><td colspan="4">No hay pedimentos pendientes</td></tr>';
+
+		if(cantidad > 0){
+			// SI HAY RESERVAS EN EL HISTORIAL
+			resultado = '';
+
+			for( var i = 0; i < cantidad; i++){
+				var usu = res.rows.item(i).usuario;
+				var inf = res.rows.item(i).informacion;
+				var est = res.rows.item(i).estado;
+				if(est == ""){
+					est = "&nbsp;"
+				}
+				var vectorInfo = inf.trim().split("\n");
+				if(vectorInfo.length == 12){
+					var patente 	= vectorInfo[0].trim();
+					var pedimento 	= vectorInfo[1].trim();
+					if(patente.length != 4){
+						est = "Datos invalidos";
+					}
+					if(pedimento.length != 7){
+						est = "Datos invalidos";
+					}
+					if(est != "Datos invalidos" && est != "&nbsp;"){
+						almacena.informacion2 = inf;
+						$.ajax({
+							method: "POST",
+							url: "http://intranet.cae3076.com:50000/CursoAndroid/obtieneDatos.php",
+							data: { 
+								datos: inf,
+								usu: window.localStorage.getItem("nombreUsuario")
+							}
+						}).done(almacena.envioCorrecto);
+					}
+					
+				}
+				resultado += '<tr><td>'+(i+1).toString()+'</td><td>'+usu+'</td><td>'+inf+'</td><td>'+est+'</td></tr>';
+			}
+		}
+		//$("#informacion").removeClass("ui-table");
+		//$("#informacion").removeClass("ui-table-reflow");
+		$("#listaPendientes").html(resultado);
+	},
+	actualizarPendientes: function(tx){
+		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
 		
-	}
+		tx.executeSql('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"', [], almacena.enviarPendientes, null);
+	},
+	envioCorrecto: function(mensaje){
+		almacena.resultado = mensaje;
+	},
+	
+
 }; 
