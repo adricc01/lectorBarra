@@ -68,7 +68,10 @@ var almacena = {
 						est = "Información invalida";
 					}
 				}else{
-					inf = inf.substring(0, 30)+"...";
+					if(inf.length > 30){
+						inf = inf.substring(0, 30)+"...";
+					}
+					
 					est = "Información invalida";
 				}
 				resultado += '<td>'+usu+'</td><td>'+usu+'</td><td>'+inf+'</td><td>'+est+'</td>';
