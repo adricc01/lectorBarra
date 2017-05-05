@@ -57,7 +57,8 @@ var almacena = {
 				if(est == ""){
 					est = "&nbsp;"
 				}
-				var vectorInfo = inf.split("\n");
+				var vectorInfo = inf.trim().split("\n");
+				alert(vectorInfo.length);
 				if(vectorInfo.length == 12){
 					var patente 	= vectorInfo[0].trim();
 					var pedimento 	= vectorInfo[1].trim();
