@@ -62,19 +62,17 @@ var almacena = {
 					var patente 	= vectorInfo[0].trim();
 					var pedimento 	= vectorInfo[1].trim();
 					if(patente.length != 4){
-						est = "Información invalida";
+						est = "Datos invalidos";
 					}
 					if(pedimento.length != 7){
-						est = "Información invalida";
+						est = "Datos invalidos";
 					}
+					inf = patente+"-"+pedimento;
 				}else{
-					if(inf.length > 30){
-						inf = inf.substring(0, 30)+"...";
-					}
-					
-					est = "Información invalida";
+					inf = "No encontrado";
+					est = "Datos invalidos";
 				}
-				resultado += '<td>'+(i+1).toString()+'</td><td>'+usu+'</td><td>'+inf+'</td><td>'+est+'</td>';
+				resultado += '<tr><td>'+(i+1).toString()+'</td><td>'+usu+'</td><td>'+inf+'</td><td>'+est+'</td></tr>';
 			}
 		}
 		//$("#informacion").removeClass("ui-table");
