@@ -96,7 +96,7 @@ var almacena = {
 	enviarPendientes: function(tx, res){
 		var cantidad = res.rows.length;
 		var resultado = '<tr><td colspan="4">No hay pedimentos pendientes</td></tr>';
-
+		alert("Primer paso");
 		if(cantidad > 0){
 			// SI HAY RESERVAS EN EL HISTORIAL
 			resultado = '';
@@ -109,6 +109,7 @@ var almacena = {
 					est = "&nbsp;"
 				}
 				almacena.informacion2 = inf;
+				alert("Envia primero");
 				$.ajax({
 					method: "POST",
 					url: "http://intranet.cae3076.com:50000/CursoAndroid/obtieneDatos.php",
@@ -117,6 +118,7 @@ var almacena = {
 						usu: window.localStorage.getItem("nombreUsuario")
 					}
 				}).done(almacena.envioCorrecto);
+				alert("Termina envio primero");
 				almacena.actualizarPendientes;
 					
 			}
@@ -132,6 +134,7 @@ var almacena = {
 		tx.executeSql('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"', [], almacena.enviarPendientes, null);
 	},
 	envioCorrecto: function(mensaje){
+		alert("asigna mensaje "+mensaje);
 		almacena.resultado = mensaje;
 	}
 	
