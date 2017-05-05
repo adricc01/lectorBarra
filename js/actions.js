@@ -14,7 +14,7 @@ var fn = {
 		$("#botonIniciarSesion").tap(fn.iniciarSesion);
 		$("#botonCerrarSesion").tap(fn.cerrarSesion);
 		$("#botonPendientes").tap(almacena.cargarDatosPendientes);
-		$("#botonEnviar").tap(almacena.cargarDatosPendientes);
+		$("#botonEnviar").tap(almacena.consultaDatosPendientes);
 		$("#botonBorrarErroneos").tap(almacena.cargarDatosPendientes);
 		document.addEventListener("backbutton", fn.onBackKeyDown, false);
 		//window.localStorage.setItem("nombreUsuario", "adominguez");
