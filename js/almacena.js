@@ -128,15 +128,15 @@ var almacena = {
 								usu: window.localStorage.getItem("nombreUsuario")
 							}
 						}).done(almacena.envioCorrecto);
+						almacena.actualizarPendientes;
 					}
 					
 				}
-				resultado += '<tr><td>'+(i+1).toString()+'</td><td>'+usu+'</td><td>'+inf+'</td><td>'+est+'</td></tr>';
 			}
 		}
 		//$("#informacion").removeClass("ui-table");
 		//$("#informacion").removeClass("ui-table-reflow");
-		$("#listaPendientes").html(resultado);
+		almacena.cargarDatosPendientes();
 	},
 	actualizarPendientes: function(tx){
 		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
