@@ -74,7 +74,7 @@ var almacena = {
 					
 					est = "Información invalida";
 				}
-				resultado += '<td>'+usu+'</td><td>'+usu+'</td><td>'+inf+'</td><td>'+est+'</td>';
+				resultado += '<td>'+(i+1).toString()+'</td><td>'+usu+'</td><td>'+inf+'</td><td>'+est+'</td>';
 			}
 		}
 		//$("#informacion").removeClass("ui-table");
