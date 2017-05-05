@@ -39,7 +39,7 @@ var almacena = {
 		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
 
 		// LEER DEL HISTORIAL
-		tx.executeSql('SELECT * FROM Pendientes ', [], almacena.mostrarResultadosPendientes, null);
+		tx.executeSql('SELECT * FROM Pendientes WHERE usuario="'+window.localStorage.getItem("nombreUsuario")+'"', [], almacena.mostrarResultadosPendientes, null);
 	},
 
 	mostrarResultadosPendientes: function(tx, res){
@@ -57,7 +57,20 @@ var almacena = {
 				if(est == ""){
 					est = "&nbsp;"
 				}
-				resultado += '<div class="ui-block-a"><span>'+usu+'</span></div><div class="ui-block-b"><span>'+inf+'</span></div><div class="ui-block-c"><span>'+est+'</span></div>';
+				var vectorInfo = inf.split("\n");
+				if(vectorInfo.length == 12){
+					var patente 	= vectorInfo[0].trim();
+					var pedimento 	= vectorInfo[1].trim();
+					if(patente.length != 4){
+						est = "Información invalida";
+					}
+					if(pedimento.length != 7){
+						est = "Información invalida";
+					}
+				}else{
+					est = "Información invalida";
+				}
+				resultado += '<td>'+usu+'</td><td>'+usu+'</td><td>'+inf+'</td><td>'+est+'</td>';
 			}
 		}
 		//$("#informacion").removeClass("ui-table");
