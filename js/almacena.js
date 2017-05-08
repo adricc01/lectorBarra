@@ -121,11 +121,12 @@ var almacena = {
 				almacena.db.transaction(almacena.actualizarPendientes, almacena.error);
 					
 			}
+			alert();
+			almacena.cargarDatosPendientes();
 		}
 		//$("#informacion").removeClass("ui-table");
 		//$("#informacion").removeClass("ui-table-reflow");
-		alert();
-		almacena.cargarDatosPendientes();
+		
 	},
 	actualizarPendientes: function(tx){
 		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
