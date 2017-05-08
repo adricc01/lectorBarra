@@ -96,7 +96,7 @@ var almacena = {
 	enviarPendientes: function(tx, res){
 		var cantidad = res.rows.length;
 		var resultado = '<tr><td colspan="4">No hay pedimentos pendientes</td></tr>';
-		alert("Primer paso: " + cantidad.toString());
+		//alert("Primer paso: " + cantidad.toString());
 		if(cantidad > 0){
 			// SI HAY RESERVAS EN EL HISTORIAL
 			resultado = '';
@@ -108,7 +108,7 @@ var almacena = {
 					est = "&nbsp;"
 				}
 				almacena.informacion2 = inf;
-				alert("Envia primero");
+				//alert("Envia primero");
 				$.ajax({
 					method: "POST",
 					url: "http://intranet.cae3076.com:50000/CursoAndroid/obtieneDatos.php",
@@ -120,7 +120,7 @@ var almacena = {
 				alert("Termina envio primero");
 				
 			}
-			alert();
+			//alert();
 			almacena.cargarDatosPendientes();
 		}
 		//$("#informacion").removeClass("ui-table");
@@ -137,10 +137,24 @@ var almacena = {
 		}
 		 
 	},
+	
 	envioCorrecto: function(mensaje){
-		alert("asigna mensaje "+mensaje);
+		//alert("asigna mensaje "+mensaje);
 		almacena.resultado = mensaje;
 		almacena.db.transaction(almacena.actualizarPendientes, almacena.error);
+	},
+	
+	limpiar: function(){
+		almacena.db = almacena.conectarDB();
+		almacena.db.transaction(almacena.limipiarTabla, almacena.error);
+		almacena.cargarDatosPendientes();
+	},
+	
+	actualizarPendientes: function(tx){
+		if(almacena.resultado != "" && almacena.informacion2 != ""){
+			tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
+			tx.executeSql('DELETE FROM Pendientes WHERE estado != "" AND usuario="'+window.localStorage.getItem("nombreUsuario")+'"');
+		}
 	}
 	
 
