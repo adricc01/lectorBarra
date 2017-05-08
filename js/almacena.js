@@ -150,7 +150,7 @@ var almacena = {
 		almacena.cargarDatosPendientes();
 	},
 	
-	actualizarPendientes: function(tx){
+	limipiarTabla: function(tx){
 		if(almacena.resultado != "" && almacena.informacion2 != ""){
 			tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
 			tx.executeSql('DELETE FROM Pendientes WHERE estado != "" AND usuario="'+window.localStorage.getItem("nombreUsuario")+'"');
