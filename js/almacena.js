@@ -81,8 +81,13 @@ var almacena = {
 	},
 	
 	consultaDatosPendientes: function(){
-		almacena.db = almacena.conectarDB();
-		almacena.db.transaction(almacena.seleccionarPendientes, almacena.error);
+		if(networkInfo.estaConectado() == false){
+			window.plugins.toast.show("No existe conexión a internet.", 'long', 'center');
+		}else{
+			almacena.db = almacena.conectarDB();
+			almacena.db.transaction(almacena.seleccionarPendientes, almacena.error);
+		}
+		
 	},
 
 	seleccionarPendientes: function(tx){
