@@ -30,11 +30,13 @@ var almacena = {
 	},
 
 	cargarDatosPendientes: function(){
+		alert("1");
 		almacena.db = almacena.conectarDB();
 		almacena.db.transaction(almacena.leerPendientes, almacena.error);
 	},
 
 	leerPendientes: function(tx){
+		alert("2");
 		// CREAR TABLA DE HISTORIAL SI NO EXISTE
 		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
 
@@ -43,6 +45,7 @@ var almacena = {
 	},
 
 	mostrarResultadosPendientes: function(tx, res){
+		alert("3");
 		var cantidad = res.rows.length;
 		var resultado = '<tr><td colspan="4">No hay pedimentos pendientes</td></tr>';
 
