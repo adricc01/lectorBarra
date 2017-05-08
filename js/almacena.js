@@ -118,8 +118,7 @@ var almacena = {
 					}
 				}).done(almacena.envioCorrecto);
 				alert("Termina envio primero");
-				almacena.db.transaction(almacena.actualizarPendientes, almacena.error);
-					
+				
 			}
 			alert();
 			almacena.cargarDatosPendientes();
@@ -136,6 +135,7 @@ var almacena = {
 	envioCorrecto: function(mensaje){
 		alert("asigna mensaje "+mensaje);
 		almacena.resultado = mensaje;
+		almacena.db.transaction(almacena.actualizarPendientes, almacena.error);
 	}
 	
 
