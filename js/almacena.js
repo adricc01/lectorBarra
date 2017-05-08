@@ -96,7 +96,7 @@ var almacena = {
 	enviarPendientes: function(tx, res){
 		var cantidad = res.rows.length;
 		var resultado = '<tr><td colspan="4">No hay pedimentos pendientes</td></tr>';
-		alert("Primer paso: " + cantidad.toString());
+		//alert("Primer paso: " + cantidad.toString());
 		if(cantidad > 0){
 			// SI HAY RESERVAS EN EL HISTORIAL
 			resultado = '';
@@ -108,7 +108,7 @@ var almacena = {
 					est = "&nbsp;"
 				}
 				almacena.informacion2 = inf;
-				alert("Envia primero");
+				//alert("Envia primero");
 				$.ajax({
 					method: "POST",
 					url: "http://intranet.cae3076.com:50000/CursoAndroid/obtieneDatos.php",
@@ -117,9 +117,9 @@ var almacena = {
 						usu: window.localStorage.getItem("nombreUsuario")
 					}
 				}).done(almacena.envioCorrecto);
-				alert("Termina envio primero");
+				//alert("Termina envio primero");
 			}
-			alert();
+			//alert();
 			alert("Envío Finalizado");
 			//almacena.cargarDatosPendientes();
 		}
@@ -128,14 +128,14 @@ var almacena = {
 		
 	},
 	envioCorrecto: function(mensaje){
-		alert("asigna mensaje "+mensaje);
+		//alert("asigna mensaje "+mensaje);
 		almacena.resultado = mensaje;
 		almacena.db.transaction(almacena.actualizarPendientes, almacena.error);
 	},
 	actualizarPendientes: function(tx){
 		if(almacena.resultado != "" && almacena.informacion2 != ""){
 			tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
-			alert('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"');
+			//alert('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"');
 			tx.executeSql('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"', [], almacena.cargarDatosPendientes(), null);
 			
 			almacena.resultado = "";
