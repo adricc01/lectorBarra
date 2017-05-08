@@ -121,7 +121,7 @@ var almacena = {
 			}
 			alert();
 			alert("Envío Finalizado");
-			almacena.cargarDatosPendientes();
+			//almacena.cargarDatosPendientes();
 		}
 		//$("#informacion").removeClass("ui-table");
 		//$("#informacion").removeClass("ui-table-reflow");
@@ -136,7 +136,7 @@ var almacena = {
 		if(almacena.resultado != "" && almacena.informacion2 != ""){
 			tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
 			alert('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"');
-			tx.executeSql('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"');
+			tx.executeSql('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"', [], almacena.cargarDatosPendientes(), null);
 			
 			almacena.resultado = "";
 			almacena.informacion2 = "";	
