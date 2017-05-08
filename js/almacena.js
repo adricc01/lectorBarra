@@ -96,13 +96,12 @@ var almacena = {
 	enviarPendientes: function(tx, res){
 		var cantidad = res.rows.length;
 		var resultado = '<tr><td colspan="4">No hay pedimentos pendientes</td></tr>';
-		alert("Primer paso");
+		alert("Primer paso: " + cantidad.toString());
 		if(cantidad > 0){
 			// SI HAY RESERVAS EN EL HISTORIAL
 			resultado = '';
 
 			for( var i = 0; i < cantidad; i++){
-				var usu = res.rows.item(i).usuario;
 				var inf = res.rows.item(i).informacion;
 				var est = res.rows.item(i).estado;
 				if(est == ""){
