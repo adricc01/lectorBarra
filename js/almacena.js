@@ -119,7 +119,7 @@ var almacena = {
 					}
 				}).done(almacena.envioCorrecto);
 				alert("Termina envio primero");
-				almacena.actualizarPendientes;
+				almacena.db.transaction(almacena.actualizarPendientes, almacena.error);
 					
 			}
 		}
@@ -130,7 +130,7 @@ var almacena = {
 	},
 	actualizarPendientes: function(tx){
 		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
-		
+		alert('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"');
 		tx.executeSql('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"', [], almacena.enviarPendientes, null);
 	},
 	envioCorrecto: function(mensaje){
