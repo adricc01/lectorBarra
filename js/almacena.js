@@ -112,16 +112,34 @@ var almacena = {
 				if(est == ""){
 					est = "&nbsp;"
 				}
-				almacena.informacion2 = inf;
-				//alert("Envia primero");
-				$.ajax({
-					method: "POST",
-					url: "http://intranet.cae3076.com:50000/CursoAndroid/obtieneDatos.php",
-					data: { 
-						datos: inf,
-						usu: window.localStorage.getItem("nombreUsuario")
+				var vectorInfo = inf.trim().split("\n");
+				if(vectorInfo.length == 12){
+					var patente 	= vectorInfo[0].trim();
+					var pedimento 	= vectorInfo[1].trim();
+					if(patente.length != 4){
+						est = "Datos invalidos";
 					}
-				}).done(almacena.envioCorrecto);
+					if(pedimento.length != 7){
+						est = "Datos invalidos";
+					}
+					inf = patente+"-"+pedimento;
+				}else{
+					inf = "No encontrado";
+					est = "Datos invalidos";
+				}
+				if(est != "Datos invalidos"){
+					almacena.informacion2 = inf;
+					//alert("Envia primero");
+					$.ajax({
+						method: "POST",
+						url: "http://intranet.cae3076.com:50000/CursoAndroid/obtieneDatos.php",
+						data: { 
+							datos: inf,
+							usu: window.localStorage.getItem("nombreUsuario")
+						}
+					}).done(almacena.envioCorrecto);
+				}
+				
 				//alert("Termina envio primero");
 			}
 			//alert();
