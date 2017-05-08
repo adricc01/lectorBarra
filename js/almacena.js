@@ -122,9 +122,7 @@ var almacena = {
 					if(pedimento.length != 7){
 						est = "Datos invalidos";
 					}
-					inf = patente+"-"+pedimento;
 				}else{
-					inf = "No encontrado";
 					est = "Datos invalidos";
 				}
 				if(est != "Datos invalidos"){
