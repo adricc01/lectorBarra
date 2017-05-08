@@ -122,12 +122,17 @@ var almacena = {
 				
 			}
 			//alert();
-			almacena.cargarDatosPendientes();
+			
 			alert("Envío Finalizado");
 		}
 		//$("#informacion").removeClass("ui-table");
 		//$("#informacion").removeClass("ui-table-reflow");
-		
+		almacena.cargarDatosPendientes();
+	},
+	envioCorrecto: function(mensaje){
+		//alert("asigna mensaje "+mensaje);
+		almacena.resultado = mensaje;
+		almacena.db.transaction(almacena.actualizarPendientes, almacena.error);
 	},
 	actualizarPendientes: function(tx){
 		if(almacena.resultado != "" && almacena.informacion2 != ""){
@@ -140,11 +145,6 @@ var almacena = {
 		 
 	},
 	
-	envioCorrecto: function(mensaje){
-		//alert("asigna mensaje "+mensaje);
-		almacena.resultado = mensaje;
-		almacena.db.transaction(almacena.actualizarPendientes, almacena.error);
-	},
 	
 	limpiar: function(){
 		almacena.db = almacena.conectarDB();
