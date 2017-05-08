@@ -122,6 +122,7 @@ var almacena = {
 			}
 			//alert();
 			almacena.cargarDatosPendientes();
+			alert("Envío Finalizado")
 		}
 		//$("#informacion").removeClass("ui-table");
 		//$("#informacion").removeClass("ui-table-reflow");
