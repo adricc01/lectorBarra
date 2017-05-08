@@ -83,7 +83,7 @@ var almacena = {
 	consultaDatosPendientes: function(){
 		almacena.db = almacena.conectarDB();
 		almacena.db.transaction(almacena.seleccionarPendientes, almacena.error);
-		
+		almacena.db.transaction(almacena.leerPendientes, almacena.error);
 	},
 
 	seleccionarPendientes: function(tx){
@@ -142,7 +142,7 @@ var almacena = {
 			almacena.resultado = "";
 			almacena.informacion2 = "";	
 		}
-		almacena.cargarDatosPendientes();
+		
 	},
 	
 	
