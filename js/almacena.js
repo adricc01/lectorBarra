@@ -143,7 +143,7 @@ var almacena = {
 	actualizarPendientes: function(tx){
 		if(almacena.resultado != "" && almacena.informacion2 != ""){
 			tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
-			//alert('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"');
+			alert('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"');
 			tx.executeSql('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"');
 			
 			almacena.resultado = "";
