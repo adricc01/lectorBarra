@@ -107,6 +107,8 @@ var almacena = {
 			resultado = '';
 
 			for( var i = 0; i < cantidad; i++){
+				almacena.resultado = "";
+				almacena.informacion2 = "";	
 				var inf = res.rows.item(i).informacion;
 				var est = res.rows.item(i).estado;
 				if(est == ""){
