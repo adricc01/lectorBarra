@@ -125,6 +125,7 @@ var almacena = {
 				//alert("Termina envio primero");
 			}
 			//alert();
+			almacena.sleep(3000);
 			alert("Envío Finalizado");
 			//almacena.cargarDatosPendientes();
 		}
@@ -159,6 +160,15 @@ var almacena = {
 		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
 		tx.executeSql('DELETE FROM Pendientes WHERE  usuario="'+window.localStorage.getItem("nombreUsuario")+'"');
 		almacena.cargarDatosPendientes();
+	},
+	
+	sleep: function(milisegundos){
+		var start = new Date().getTime();
+		for (var i = 0; i < 1e7; i++) {
+			if ((new Date().getTime() - start) > milisegundos){
+				break;
+			}
+		}
 	}
 	
 
