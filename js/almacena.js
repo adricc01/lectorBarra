@@ -30,13 +30,11 @@ var almacena = {
 	},
 
 	cargarDatosPendientes: function(){
-		alert("1");
 		almacena.db = almacena.conectarDB();
 		almacena.db.transaction(almacena.leerPendientes, almacena.error);
 	},
 
 	leerPendientes: function(tx){
-		alert("2");
 		// CREAR TABLA DE HISTORIAL SI NO EXISTE
 		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
 
@@ -45,7 +43,6 @@ var almacena = {
 	},
 
 	mostrarResultadosPendientes: function(tx, res){
-		alert("3");
 		var cantidad = res.rows.length;
 		var resultado = '<tr><td colspan="4">No hay pedimentos pendientes</td></tr>';
 
@@ -128,9 +125,11 @@ var almacena = {
 				//alert("Termina envio primero");
 			}
 			//alert();
+			$("#listaPendientes").html("");
 			almacena.sleep(3000);
+			almacena.cargarDatosPendientes();
 			alert("Envío Finalizado");
-			//almacena.cargarDatosPendientes();
+			
 		}
 		//$("#informacion").removeClass("ui-table");
 		//$("#informacion").removeClass("ui-table-reflow");
@@ -145,7 +144,7 @@ var almacena = {
 		if(almacena.resultado != "" && almacena.informacion2 != ""){
 			tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
 			//alert('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"');
-			tx.executeSql('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"', [], almacena.cargarDatosPendientes(), null);
+			tx.executeSql('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"');
 			
 			almacena.resultado = "";
 			almacena.informacion2 = "";	
