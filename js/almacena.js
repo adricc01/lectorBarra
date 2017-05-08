@@ -83,6 +83,7 @@ var almacena = {
 	consultaDatosPendientes: function(){
 		almacena.db = almacena.conectarDB();
 		almacena.db.transaction(almacena.seleccionarPendientes, almacena.error);
+		
 	},
 
 	seleccionarPendientes: function(tx){
@@ -122,7 +123,7 @@ var almacena = {
 			}
 			//alert();
 			almacena.cargarDatosPendientes();
-			alert("Envío Finalizado")
+			alert("Envío Finalizado");
 		}
 		//$("#informacion").removeClass("ui-table");
 		//$("#informacion").removeClass("ui-table-reflow");
