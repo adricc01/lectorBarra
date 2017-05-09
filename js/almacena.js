@@ -7,7 +7,7 @@ var almacena = {
 		return window.openDatabase("Modulacion", "1.0", "Modulacion", 200000);
 	},
 	error: function(error){
-		alert("Error: "+error.message);
+		//alert("Error: "+error.message);
 	},
 	exito: function(){
 		//alert("Exito");
