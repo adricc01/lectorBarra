@@ -138,7 +138,13 @@ var almacena = {
 							datos: inf,
 							usu: window.localStorage.getItem("nombreUsuario")
 						}
-					}).done(almacena.envioCorrecto);
+					}).done(function(mensaje){
+		//alert("asigna mensaje "+mensaje);
+		almacena.resultado = mensaje;
+		almacena.db.transaction(function(tx){
+							almacena.hacerUpdate(tx, almacena.informacion2, almacena.resultado);
+						}, almacena.error);
+					});
 				}
 				
 				//alert("Termina envio primero");
