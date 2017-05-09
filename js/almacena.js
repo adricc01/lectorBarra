@@ -128,12 +128,13 @@ var almacena = {
 				}
 				if(est != "Datos invalidos"){
 					almacena.enviaAjax(inf);
+					
 				}
 				//alert("Termina envio primero");
 			}
 			$("#listaPendientes").html("");
 			alert("Envío Finalizado");
-			almacena.cargarDatosPendientes();
+			
 		}
 		//$("#informacion").removeClass("ui-table");
 		//$("#informacion").removeClass("ui-table-reflow");
@@ -160,8 +161,7 @@ var almacena = {
 	hacerUpdate: function(tx, informacion, mensaje){
 		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
 		tx.executeSql('UPDATE Pendientes SET estado = "'+mensaje+'" WHERE informacion= "'+informacion+'" AND usuario="'+window.localStorage.getItem("nombreUsuario")+'"');
-		almacena.resultado = "";
-		almacena.informacion2 = "";	
+		almacena.cargarDatosPendientes();
 	},
 	
 	limpiar: function(){
