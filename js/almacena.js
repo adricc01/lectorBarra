@@ -99,7 +99,6 @@ var almacena = {
 	},
 
 	enviarPendientes: function(tx, res){
-		window.location.href="#inicio";
 		var cantidad = res.rows.length;
 		var resultado = '<tr><td colspan="4">No hay pedimentos pendientes</td></tr>';
 		//alert("Primer paso: " + cantidad.toString());
@@ -137,6 +136,7 @@ var almacena = {
 			//alert();
 			$("#listaPendientes").html("");
 			alert("Envío Finalizado");
+			almacena.cargarDatosPendientes();
 		}
 		//$("#informacion").removeClass("ui-table");
 		//$("#informacion").removeClass("ui-table-reflow");
