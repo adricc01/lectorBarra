@@ -155,17 +155,16 @@ var almacena = {
 		//alert("asigna mensaje "+mensaje);
 		almacena.resultado = mensaje;
 		almacena.db.transaction(function(tx){
-									if(almacena.resultado != "" && almacena.informacion2 != ""){
-										tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
-										alert('UPDATE Pendientes SET estado = "'+mensaje+'" WHERE informacion= "'+almacena.informacion2+'" AND usuario="'+window.localStorage.getItem("nombreUsuario")+'"');
-										tx.executeSql('UPDATE Pendientes SET estado = "'+mensaje+'" WHERE informacion= "'+almacena.informacion2+'" AND usuario="'+window.localStorage.getItem("nombreUsuario")+'"');
-
-										almacena.resultado = "";
-										almacena.informacion2 = "";	
-									}
-
-								}, almacena.error);
+			almacena.hacerUpdate(tx, almacena.informacion2, almacena.resultado);
+		}, almacena.error);
 	},
+	hacerUpdate: function(tx, informacion, mensaje){
+		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
+		tx.executeSql('UPDATE Pendientes SET estado = "'+mensaje+'" WHERE informacion= "'+informacion+'" AND usuario="'+window.localStorage.getItem("nombreUsuario")+'"');
+		almacena.resultado = "";
+		almacena.informacion2 = "";	
+	},
+  
 	actualizarPendientes: function(tx){
 		if(almacena.resultado != "" && almacena.informacion2 != ""){
 			tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
