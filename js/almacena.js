@@ -105,7 +105,6 @@ var almacena = {
 		if(cantidad > 0){
 			// SI HAY RESERVAS EN EL HISTORIAL
 			resultado = '';
-
 			for( var i = 0; i < cantidad; i++){
 				almacena.resultado = "";
 				almacena.informacion2 = "";	
@@ -128,12 +127,10 @@ var almacena = {
 					est = "Datos invalidos";
 				}
 				if(est != "Datos invalidos"){
-					almacena.informacion2 = inf;
 					almacena.enviaAjax(inf);
 				}
 				//alert("Termina envio primero");
 			}
-			//alert();
 			$("#listaPendientes").html("");
 			alert("Envío Finalizado");
 			almacena.cargarDatosPendientes();
@@ -142,6 +139,7 @@ var almacena = {
 		//$("#informacion").removeClass("ui-table-reflow");
 		
 	},
+	
 	enviaAjax: function(informacion){
 		$.ajax({
 				method: "POST",
@@ -158,32 +156,13 @@ var almacena = {
 						}, almacena.error);
 					});
 	},
-	envioCorrecto: function(mensaje){
-		//alert("asigna mensaje "+mensaje);
-		almacena.resultado = mensaje;
-		almacena.db.transaction(function(tx){
-			almacena.hacerUpdate(tx, almacena.informacion2, almacena.resultado);
-		}, almacena.error);
-	},
+	
 	hacerUpdate: function(tx, informacion, mensaje){
 		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
 		tx.executeSql('UPDATE Pendientes SET estado = "'+mensaje+'" WHERE informacion= "'+informacion+'" AND usuario="'+window.localStorage.getItem("nombreUsuario")+'"');
 		almacena.resultado = "";
 		almacena.informacion2 = "";	
 	},
-  
-	actualizarPendientes: function(tx){
-		if(almacena.resultado != "" && almacena.informacion2 != ""){
-			tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
-			//alert('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"');
-			tx.executeSql('UPDATE Pendientes SET estado = "'+almacena.resultado+'" WHERE informacion= "'+almacena.informacion2+'"');
-			
-			almacena.resultado = "";
-			almacena.informacion2 = "";	
-		}
-		
-	},
-	
 	
 	limpiar: function(){
 		almacena.db = almacena.conectarDB();
