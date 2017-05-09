@@ -130,23 +130,8 @@ var almacena = {
 				}
 				if(est != "Datos invalidos"){
 					almacena.informacion2 = inf;
-					//alert("Envia primero");
-					$.ajax({
-						method: "POST",
-						url: "http://intranet.cae3076.com:50000/CursoAndroid/obtieneDatos.php",
-						data: { 
-							datos: inf,
-							usu: window.localStorage.getItem("nombreUsuario")
-						}
-					}).done(function(mensaje){
-		//alert("asigna mensaje "+mensaje);
-		almacena.resultado = mensaje;
-		almacena.db.transaction(function(tx){
-							almacena.hacerUpdate(tx, almacena.informacion2, almacena.resultado);
-						}, almacena.error);
-					});
+					almacena.enviaAjax(inf);
 				}
-				
 				//alert("Termina envio primero");
 			}
 			//alert();
@@ -156,6 +141,22 @@ var almacena = {
 		//$("#informacion").removeClass("ui-table");
 		//$("#informacion").removeClass("ui-table-reflow");
 		
+	},
+	enviaAjax: function(informacion){
+		$.ajax({
+				method: "POST",
+				url: "http://intranet.cae3076.com:50000/CursoAndroid/obtieneDatos.php",
+				data: { 
+					datos: informacion,
+					usu: window.localStorage.getItem("nombreUsuario")
+				}
+			}).done(function(mensaje){
+		//alert("asigna mensaje "+mensaje);
+		almacena.resultado = mensaje;
+		almacena.db.transaction(function(tx){
+							almacena.hacerUpdate(tx, informacion, mensaje);
+						}, almacena.error);
+					});
 	},
 	envioCorrecto: function(mensaje){
 		//alert("asigna mensaje "+mensaje);
